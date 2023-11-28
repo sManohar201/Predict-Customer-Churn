@@ -32,8 +32,8 @@ def import_data(pth):
     output:
             df: pandas dataframe
     '''	
-#     df = pd.read_csv(pth)
-#     return df
+    df = pd.read_csv(pth)
+    return df
 
 
 def perform_eda(df):
