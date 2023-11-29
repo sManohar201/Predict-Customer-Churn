@@ -61,17 +61,15 @@ def perform_eda(df):
     # TODO: save the path to save images as a constant
     IMAGE_PATH = './images/eda'
     # calculate the churn data
-    churn_data = df['Attrition_Flag'].apply(
-                lambda val: 0 if val == "Existing Customer" else 1)
-    churn_data_plot_path = f'{IMAGE_PATH}/churn_distribution.png'
-    plot_hist(churn_data, churn_data_plot_path)
+    plot_path = f'{IMAGE_PATH}/churn_distribution.png'
+    plot_hist(df['Churn'], plot_path)
     # plot the customer age
-    customer_age_plot_path = f'{IMAGE_PATH}/customer_age_distribution.png'
-    plot_hist(df['Customer_Age'], customer_age_plot_path)
+    plot_path = f'{IMAGE_PATH}/customer_age_distribution.png'
+    plot_hist(df['Customer_Age'], plot_path)
     # plot Matrital status, here I have avoided normalizing the column
     # both gives you similar information.
-    marital_status_plot_path = f'{IMAGE_PATH}/marital_status_distribution.png'
-    plot_hist(df['Marital_Status'], marital_status_plot_path)
+    plot_path = f'{IMAGE_PATH}/marital_status_distribution.png'
+    plot_hist(df['Marital_Status'], plot_path)
     # plot distributions of Total Transaction count
     plt.figure(figsize=(20, 10))
     sns.histplot(df['Total_Trans_Ct'], stat='density', kde=True)
