@@ -32,6 +32,7 @@ def import_data(pth):
             df: pandas dataframe
     '''	
     df = pd.read_csv(pth)
+    df['Churn'] = df['Attrition_Flag'].apply(lambda val: 0 if val == "Existing Customer" else 1)
     return df
 
 def plot_hist(obj, plt_save_pth):
