@@ -135,7 +135,7 @@ def perform_feature_engineering(df, response):
     
     X = pd.DataFrame()
     X[keep_cols] = updated_df[keep_cols]
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size= 0.3, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(X, updated_df['Churn'], test_size= 0.3, random_state=42)
 
     return (X_train, X_test, y_train, y_test)
 
@@ -161,7 +161,7 @@ def classification_report_image(y_train,
              None
     '''
     # random_forest report
-    plt.rc('figure', figsize=(5, 5))
+    plt.rc('figure', figsize=(6, 5))
     #plt.text(0.01, 0.05, str(model.summary()), {'fontsize': 12}) old approach
     plt.text(0.01, 1.25, str('Random Forest Train'), {'fontsize': 10}, fontproperties = 'monospace')
     plt.text(0.01, 0.05, str(classification_report(y_test, y_test_preds_rf)), {'fontsize': 10}, fontproperties = 'monospace') # approach improved by OP -> monospace!
@@ -171,7 +171,7 @@ def classification_report_image(y_train,
     plt.savefig('./images/results/rf_results.png')
     plt.close();
     # logistic regression report
-    plt.rc('figure', figsize=(5, 5))
+    plt.rc('figure', figsize=(6, 5))
     plt.text(0.01, 1.25, str('Logistic Regression Train'), {'fontsize': 10}, fontproperties = 'monospace')
     plt.text(0.01, 0.05, str(classification_report(y_train, y_train_preds_lr)), {'fontsize': 10}, fontproperties = 'monospace') # approach improved by OP -> monospace!
     plt.text(0.01, 0.6, str('Logistic Regression Test'), {'fontsize': 10}, fontproperties = 'monospace')
