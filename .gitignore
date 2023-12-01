@@ -1,4 +1,4 @@
 images/results/*
 images/eda/*
-./models/*
-./logs/*
+models/*
+logs/*
