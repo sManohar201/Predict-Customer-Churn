@@ -2,3 +2,5 @@ images/results/*
 images/eda/*
 models/*
 logs/*
+
+__pycache__/
