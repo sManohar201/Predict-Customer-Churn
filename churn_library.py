@@ -240,18 +240,34 @@ def train_models(X_train, X_test, y_train, y_test):
     }
     cv_rfc = GridSearchCV(estimator=rfc, param_grid=param_grid, cv=5)
     cv_rfc.fit(X_train, y_train)
-
+    # train logistic regression model
     lrc.fit(X_train, y_train)
-
+    # predictions for random forest
     y_train_preds_rf = cv_rfc.best_estimator_.predict(X_train)
     y_test_preds_rf = cv_rfc.best_estimator_.predict(X_test)
-
+    # predictions for logistic regression
     y_train_preds_lr = lrc.predict(X_train)
     y_test_preds_lr = lrc.predict(X_test)
-
-
+    # save models to local directory
+    joblib.dump(cv_rfc.best_estimator_, './models/rfc_model.pkl')
+    joblib.dump(lrc, './models/logistic_model.pkl')
+    # plot classification report images
+    classification_report_image(y_train, y_test, y_train_preds_lr, y_train_preds_rf,
+                                y_test_preds_lr, y_test_preds_rf)
+    feature_importance_plot(cv_rfc, X_train, './images/results')
+    lrc_plot = plot_roc_curve(lrc, X_test, y_test)
+    plt.figure(figsize=(15,8))
+    ax = plt.gca()
+    rfc_disp = plot_roc_curve(cv_rfc, X_test, y_test, ax=ax, alpha=0.8)
+    lrc_plot.plot(ax=ax, alpha=0.8)
+    plt.savefig('./images/results/roc_curve_result.png')
+    plt.close()
 
 if __name__ == "__main__":
     path = './data/bank_data.csv'
     df = import_data(path)
     perform_eda(df)
+
+    X_train, X_test, y_train, y_test = perform_feature_engineering(df, 'dummy')
+    train_models(X_train, X_test, y_train, y_test)
+
