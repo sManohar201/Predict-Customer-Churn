@@ -100,7 +100,6 @@ def encoder_helper(df, category_lst, response):
     '''
     # make a copy of the dataframe
     old_df = df.copy()
-    print(old_df.shape[1])
     # gender encoded column
     for ind, cat in enumerate(category_lst):
         lst = []
@@ -108,7 +107,6 @@ def encoder_helper(df, category_lst, response):
         lst.extend([groups.loc[val] for val in old_df[cat]])
         # create a new column and add it to the dataframe
         df[response[ind]] = lst
-    print(df.shape[1])
     return df
 
 

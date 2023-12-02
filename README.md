@@ -3,7 +3,7 @@
 - Project **Predict Customer Churn** of ML DevOps Engineer Nanodegree Udacity
 
 ## Project Description
-This project involves operationalizing a machine learning model to predict the likelihood of credit card customers churning. A logistic regression model, among others, is trained on the given data for prediction using Jupyter Notebook. Our objective is to improve the reusability of the project by modularizing the training pipeline, defining test cases, and implementing logging for the training pipeline.
+This project involves operationalizing a machine learning model to predict the likelihood of credit card customers churning. For this purpose, a logistic regression model, among others, is trained on the given data using Jupyter Notebook. Our objective is to improve the reusability of the project by modularizing the training pipeline, defining test cases, and implementing logging for the training pipeline.
 
 ## Files and data description
 Overview of the files and data present in the root directory. 
