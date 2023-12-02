@@ -40,8 +40,8 @@ Pull the repository to your local machine.
 
 Create a python environment to run the project. Make sure you have venv installed
 - `sudo apt install python3-venv` for Linux/MacOS **or** `pip install virtualenv` for Windows.
-- `python3 -m venv <env-name>` for Linux/MacOS **or** `virtualenv <env-name>`
-- `<env-name>/bin/activate` for Linux/MacOS **or** `<env-name>/Scripts/Activate.ps1`
+- `python3 -m venv <env-name>` for Linux/MacOS **or** `virtualenv <env-name>` for Windows. 
+- `<env-name>/bin/activate` for Linux/MacOS **or** `<env-name>/Scripts/Activate.ps1` for Windows.
 - `pip install -r <requirements.txt>` to install the dependencies.
 
 Run the training pipeline. `churn_library.py1` is the main file which contains the training pipeline.
