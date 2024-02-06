@@ -1,6 +1,6 @@
 """
-Test module for churn_library.py.
-
+Test module for churn_library.py and contains test for churn customer analysis functions.
+Author: Sabari.
 Date: 29/11/2023
 """
 import os
