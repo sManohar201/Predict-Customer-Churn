@@ -1,6 +1,6 @@
 """
-chrun_library.py module.
-
+chrun_library.py module contains functions of churn customer analysis.
+Author: Sabari 
 Date: 29/11/2023
 """
 
